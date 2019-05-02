@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flatiron Sinatra Project</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="nav-bar">
+      <% path = request.path_info %>
+      <a href="#">
+        <div class="home">
+          HOME
+        </div>
+      </a>
+      <div class="user-access">
+        <a href="#">Log In</a>
+        <a href="#">Sign Up</a>
+      </div>
+      <% if !@current_user %>
+
+      <% else %>
+
+      <% end %>
+
+    </div>
+
+    <div class="container">
+      <div class="intro">
+        <% user_name = "" %>
+        <% if @current_user %>
+          <% user_name = @current_user.username + ", "%>
+        <% end %>
+        <h1><span class="username"><%=user_name%></span>Welcome</h1>
+      </div>
+
+      <div class="yielded">
+          <%= yield %>
+      </div>
+
+      <br><br>
+
+    </div>
+
+  </body>
+</html>

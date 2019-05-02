@@ -5,6 +5,8 @@ require './config/environment'
 # end
 
 use Rack::MethodOverride
-# use
-# use
+use UserController
+use DeveloperController
+use GenreController
+use GameController
 run ApplicationController

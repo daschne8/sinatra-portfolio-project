@@ -1,0 +1,47 @@
+body {
+  padding: 10px;
+  background-color: #88a2aa;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+input[type=text], input[type=password]{
+  width: 100%;
+}
+
+
+
+.nav-bar{
+  background-color: #f42c04 ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bar div{
+  padding: 20px;
+}
+
+.intro{
+
+}
+
+.yielded{
+
+}
+
+.lmr-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.left,.right{
+  flex: 1;
+}
+
+.middle{
+  flex: 3;
+}
