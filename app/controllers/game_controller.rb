@@ -4,7 +4,12 @@ class GameController < ApplicationController
     @current_user = Helpers.current_user(session)
     @genres = Genre.all
     @developers = Developer.all
-    erb :'/games/new'
+    if Helpers.is_logged_in?(session)
+      erb :'/games/new'
+    else
+      redirect '/'
+    end
+
   end
 
   get '/games/:slug' do
@@ -22,7 +27,7 @@ class GameController < ApplicationController
     @genres = Genre.all
     @developers = Developer.all
     @game = Game.find_by_slug(params[:slug])
-    if @game
+    if @game && @current_user.games.include?(@game)
       erb :"/games/edit"
     else
       redirect '/'
@@ -56,8 +61,6 @@ class GameController < ApplicationController
     else
       @game.developer_id = params[:developer]
     end
-    binding.pry
-    puts "done"
     if !(!!@game.developer && !!@game.genres && !!@game.name)
       redirect "/games/new"
     else
