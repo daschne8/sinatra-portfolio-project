@@ -1,0 +1,19 @@
+<h2><%= @game.name %></h2>
+<p><%= @game.description %></p>
+
+<h3>Made By</h3>
+<p><%= @game.developer.name %></p>
+
+<h3>Genres</h3>
+<ul>
+  <% @game.genres.each do |g| %>
+    <li><%= g.name %></li>
+  <% end %>
+</ul>
+
+<h3>Owned By</h3>
+<ul>
+  <% @game.users.each do |u| %>
+    <li><%= u.username %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,19 @@
+<h3>Enter a new Game</h3>
+
+<form action="/games" method="post">
+  <label for="name">Name: </label>
+    <input id="name" name="game[name]" type="text">
+  <label for="description">Description: </label>
+    <input id="description" name="game[description]" type="text">
+  <label for="genres">Genres: </label><br>
+    <% @genres.each do |genre|%>
+      <input id="<%=genre.name%>" type="checkbox" name='genres[]' value="<%=genre.id%>"><%=genre.name%></input>
+    <% end %>
+  <br>
+  <label for="developer">Developed By: </label><br>
+    <% @developers.each do |dev|%>
+      <input id="<%=dev.name%>" type="checkbox" name='developer' value="<%=dev.id%>"><%=dev.name%></input>
+    <% end %>
+
+  <input type="submit" name="submit" value="Enter">
+</form>

@@ -12,7 +12,7 @@ sc2 = Game.create({name: "Starcraft 2"})
 
 #developers
 supergiant = Developer.create({name: "Supergiant"})
-ca = Developer.create({name: "Creative Assemply"})
+ca = Developer.create({name: "Creative Assembly"})
 from = Developer.create({name: "From Software"})
 blizzard = Developer.create({name: "Blizzard"})
 
@@ -50,3 +50,8 @@ tww2.genres << four_x
 tww2.genres << rts
 hots.genres << moba
 sc2.genres << rts
+
+Game.all.each do |g|
+  g.description = "Placeholder text for game description"
+  g.save
+end

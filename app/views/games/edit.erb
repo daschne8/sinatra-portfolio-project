@@ -1,0 +1,20 @@
+<h3>Editing Game</h3>
+
+<form action="/games/<%=@game.slug%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="name">Name: </label>
+    <input id="name" name="game[name]" type="text" value="<%=@game.name%>">
+  <label for="description">Description: </label>
+    <input id="description" name="game[description]" type="text" value="<%=@game.description%>">
+  <label for="genres">Genres: </label><br>
+    <% @genres.each do |genre|%>
+      <input id="<%=genre.name%>" type="checkbox" name='genres[]' value="<%=genre.id%>" <%='checked' if @game.genres.include?(genre)%>><%=genre.name%></input>
+    <% end %>
+  <br>
+  <label for="developer">Developed By: </label><br>
+    <% @developers.each do |dev|%>
+      <input id="<%=dev.name%>" type="checkbox" name='developer' value="<%=dev.id%>" <%='checked' if @game.developer == dev%>><%=dev.name%></input>
+    <% end %>
+
+  <input type="submit" name="submit" value="Enter">
+</form>
