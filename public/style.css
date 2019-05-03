@@ -3,16 +3,25 @@ body {
   background-color: #88a2aa;
 }
 
-a{
+.nav-bar a{
   color: white;
   text-decoration: none;
 }
+
+.container a{
+  color: black;
+  text-decoration: none;
+}
+
+
 
 input[type=text], input[type=password]{
   width: 100%;
 }
 
-
+.username{
+  color: blue;
+}
 
 .nav-bar{
   background-color: #f42c04 ;

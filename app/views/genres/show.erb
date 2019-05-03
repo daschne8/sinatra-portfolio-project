@@ -1,0 +1,15 @@
+<h2><%= @genre.name %></h2>
+
+<h3>Developers in this genre</h3>
+<ul>
+  <% @genre.developers.each do |d| %>
+    <li><a href="/developers/<%=d.slug%>"><%= d.name %></a></li>
+  <% end %>
+</ul>
+
+<h3>Enjoyed By</h3>
+<ul>
+  <% @genre.users.each do |u| %>
+    <li><a href="/users/<%=u.slug%>"><%= u.username %></a></li>
+  <% end %>
+</ul>

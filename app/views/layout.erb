@@ -8,30 +8,31 @@
   <body>
     <div class="nav-bar">
       <% path = request.path_info %>
-      <a href="#">
-        <div class="home">
-          HOME
-        </div>
-      </a>
-      <div class="user-access">
-        <a href="#">Log In</a>
-        <a href="#">Sign Up</a>
+      <div class="home">
+        <% if @current_user %>
+          <a href="/users/<%=@current_user.slug%>">HOME</a>
+        <% end %>
+        <a href="/">BROWSE</a>
       </div>
-      <% if !@current_user %>
 
-      <% else %>
-
-      <% end %>
+      <div class="user-access">
+        <% if !@current_user %>
+          <a href="/login">Log In</a>
+          <a href="/signup">Sign Up</a>
+        <% else %>
+          <a href="/logout">Logout</a>
+        <% end %>
+      </div>
 
     </div>
 
     <div class="container">
       <div class="intro">
-        <% user_name = "" %>
         <% if @current_user %>
-          <% user_name = @current_user.username + ", "%>
+          <h1><span class="username"><%=@current_user.username%></span></h1>
+          <h6>Logged In</h6>
         <% end %>
-        <h1><span class="username"><%=user_name%></span>Welcome</h1>
+
       </div>
 
       <div class="yielded">

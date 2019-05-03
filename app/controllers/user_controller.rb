@@ -17,8 +17,14 @@ class UserController < ApplicationController
     erb :'users/login'
   end
 
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
+
   get "/users/:slug" do
-    @current_user = User.find_by_slug(params[:slug])
+    @current_user = Helpers.current_user(session)
+    @profile = User.find_by_slug(params[:slug])
     @games = @current_user.games.uniq
     @developers = @current_user.developers.uniq
     @genres = @current_user.genres.uniq
@@ -43,7 +49,6 @@ class UserController < ApplicationController
     else
       redirect '/signup'
     end
-
   end
 
 end

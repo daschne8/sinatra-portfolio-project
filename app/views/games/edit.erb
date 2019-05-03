@@ -11,10 +11,14 @@
       <input id="<%=genre.name%>" type="checkbox" name='genres[]' value="<%=genre.id%>" <%='checked' if @game.genres.include?(genre)%>><%=genre.name%></input>
     <% end %>
   <br>
+  <label for="new_genre">Or enter New Genre: </label>
+    <input id="new_genre" type="text" name="new_genre" ><br>
   <label for="developer">Developed By: </label><br>
     <% @developers.each do |dev|%>
       <input id="<%=dev.name%>" type="checkbox" name='developer' value="<%=dev.id%>" <%='checked' if @game.developer == dev%>><%=dev.name%></input>
-    <% end %>
+    <% end %><br>
+  <label for="new_dev">Or enter New Developer: </label>
+    <input id="new_dev" type="text" name="new_dev" >
 
   <input type="submit" name="submit" value="Enter">
 </form>

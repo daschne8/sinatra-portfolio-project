@@ -2,18 +2,26 @@
 <p><%= @game.description %></p>
 
 <h3>Made By</h3>
-<p><%= @game.developer.name %></p>
+<p><a href="/developers/<%=@game.developer.slug%>"><%= @game.developer.name %></a></p>
 
 <h3>Genres</h3>
 <ul>
   <% @game.genres.each do |g| %>
-    <li><%= g.name %></li>
+    <li><a href="/genres/<%=g.slug%>"><%= g.name %></a></li>
   <% end %>
 </ul>
 
 <h3>Owned By</h3>
 <ul>
   <% @game.users.each do |u| %>
-    <li><%= u.username %></li>
+    <li><a href="/users/<%=u.slug%>"><%= u.username %></a></li>
   <% end %>
 </ul>
+
+<form action="/mod_game/<%=@game.slug%>" method="post">
+  <% if !@current_user.games.include?(@game) %>
+    <input type="submit" name="mod_game" value="Add to Library">
+  <% else %>
+    <input type="submit" name="mod_game" value="Edit Game">
+  <% end %>
+</form>

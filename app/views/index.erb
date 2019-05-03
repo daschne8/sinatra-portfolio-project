@@ -1,14 +1,14 @@
 <h1>Users</h1>
 <ul>
   <% @users.each do |u|%>
-      <li><%= u.username %></li>
+      <li><a href="/users/<%=u.slug%>"><%= u.username %></a></li>
   <% end %>
 </ul><br><br>
 
 <h1>Games</h1>
 <ul>
   <% @games.each do |u|%>
-      <li><%= u.name %></li>
+      <li><a href="/games/<%=u.slug%>"><%= u.name %></a></li>
   <% end %>
 </ul><br><br>
 
