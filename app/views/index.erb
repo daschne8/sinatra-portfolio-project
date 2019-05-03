@@ -1,27 +1,27 @@
 <h1>Users</h1>
 <ul>
-  <% @users.each do |u|%>
+  <% @users.uniq.each do |u|%>
       <li><a href="/users/<%=u.slug%>"><%= u.username %></a></li>
   <% end %>
 </ul><br><br>
 
 <h1>Games</h1>
 <ul>
-  <% @games.each do |u|%>
+  <% @games.uniq.each do |u|%>
       <li><a href="/games/<%=u.slug%>"><%= u.name %></a></li>
   <% end %>
 </ul><br><br>
 
 <h1>Developers</h1>
 <ul>
-  <% @developers.each do |u|%>
+  <% @developers.uniq.each do |u|%>
       <li><a href="/developers/<%=u.slug%>"><%= u.name %></a></li>
   <% end %>
 </ul><br><br>
 
 <h1>Genres</h1>
 <ul>
-  <% @genres.each do |u|%>
+  <% @genres.uniq.each do |u|%>
       <li><a href="/genres/<%=u.slug%>"><%= u.name %></a></li>
   <% end %>
 </ul><br><br>

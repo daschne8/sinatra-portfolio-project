@@ -7,14 +7,14 @@
 
 <h3>Genres</h3>
 <ul>
-  <% @game.genres.each do |g| %>
+  <% @game.genres.uniq.each do |g| %>
     <li><a href="/genres/<%=g.slug%>"><%= g.name %></a></li>
   <% end %>
 </ul>
 
 <h3>Owned By</h3>
 <ul>
-  <% @game.users.each do |u| %>
+  <% @game.users.uniq.each do |u| %>
     <li><a href="/users/<%=u.slug%>"><%= u.username %></a></li>
   <% end %>
 </ul>

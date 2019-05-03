@@ -2,14 +2,14 @@
 
 <h3>Games: </h3>
 <ul>
- <% @developer.games.each do |g| %>
+ <% @developer.games.uniq.each do |g| %>
    <li><a href="/games/<%=g.slug%>"><%=g.name%></a></li>
  <% end %>
 </ul><br>
 
 <h3>Genres: </h3>
 <ul>
-  <% @developer.genres.each do |g| %>
+  <% @developer.genres.uniq.each do |g| %>
     <li><a href="/genres/<%=g.slug%>"><%=g.name%></a></li>
   <% end %>
 </ul>
