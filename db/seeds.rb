@@ -1,3 +1,5 @@
+require_relative 'scraper'
+
 require 'steam-api'
 Steam.apikey = "AF2EF74D1DA3B2636877D541E53F9078"
 
@@ -58,12 +60,20 @@ sc2.genres << rts
     @game = Game.find_or_create_by(name: game["name"])
     @game.image_icon_url = "http://media.steampowered.com/steamcommunity/public/images/apps/"+"#{game["appid"]}/"+game["img_icon_url"]+".jpg"
     @game.image_header_url = "https://steamcdn-a.akamaihd.net/steam/apps/"+"#{game["appid"]}/header.jpg"
+    info = Scraper.scrape(game["appid"].to_s)
+    @game.developer = Developer.find_or_create_by(name: info[:developer])
+    @game.description = info[:description]
+    info[:genres].each do |genre|
+      @game.genres << Genre.find_or_create_by(name: genre)
+    end
+
     if @game.developer==nil
       @game.developer = no_dev
     end
     if @game.genres==[]
       @game.genres << no_genre
     end
+
     @game.save
     u.games << @game
     u.save
@@ -71,6 +81,6 @@ sc2.genres << rts
 end
 
 Game.all.each do |g|
-  g.description = "Placeholder text for game description"
+  g.description ||= "Placeholder text for game description"
   g.save
 end

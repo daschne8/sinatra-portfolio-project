@@ -12,6 +12,7 @@ gem 'bcrypt'
 gem "tux"
 gem 'sqlite3', '~>1.3.6'
 gem 'steam-api'
+gem 'nokogiri'
 
 group :test do
   gem 'rspec'
