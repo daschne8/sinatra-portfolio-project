@@ -66,16 +66,15 @@ nav{
   justify-content: flex-end;
 }
 
-.current_user h1{
-  padding: 0px;
-  margin: 0px;
-}
-
-.current_user h6{
+.current_user h1,h6{
   padding: 0px;
   margin: 0px;
 }
 
 .yielded{
+
+}
+
+.button{
 
 }
