@@ -11,6 +11,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 gem 'sqlite3', '~>1.3.6'
+gem 'steam-api'
 
 group :test do
   gem 'rspec'

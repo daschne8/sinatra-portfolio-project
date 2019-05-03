@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_191228) do
     t.string "name"
     t.string "description"
     t.integer "developer_id"
+    t.string "image_icon_url"
+    t.string "image_header_url"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -38,8 +40,8 @@ ActiveRecord::Schema.define(version: 2019_05_02_191228) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "email"
     t.string "password_digest"
+    t.string "steamid"
   end
 
 end

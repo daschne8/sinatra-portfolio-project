@@ -46,11 +46,11 @@ class GameController < ApplicationController
     @current_user.games << @game
     @game.genre_ids = params[:genres]
     @game.developer_id = params[:developer]
-    if params[:new_genre] != nil
+    if params[:new_genre] != nil && !params[:new_genre].empty?
       genre = Genre.create({name: params[:new_genre]})
       @game.genre_ids << genre.id
     end
-    if params[:new_dev] != nil
+    if params[:new_dev] != nil && !params[:new_dev].empty?
       developer = Developer.create({name: params[:new_dev]})
       @game.developer = developer
     else
@@ -73,11 +73,11 @@ class GameController < ApplicationController
     @game = Game.find_by_slug(params[:slug])
     @game.update(params[:game])
     @game.genre_ids = params[:genres]
-    if params[:new_genre] != nil
+    if params[:new_genre] != nil && !params[:new_genre].empty?
       genre = Genre.create({name: params[:new_genre]})
       @game.genre_ids << genre.id
     end
-    if params[:new_dev] != nil
+    if params[:new_dev] != nil && !params[:new_dev].empty?
       developer = Developer.create({name: params[:new_dev]})
       @game.developer = developer
     else

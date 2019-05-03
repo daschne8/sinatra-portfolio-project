@@ -42,7 +42,7 @@ class UserController < ApplicationController
   end
 
   post '/signup' do
-    if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
+    if !params[:username].empty? && !params[:steamid].empty? && !params[:password].empty?
       user = User.create(params)
       session[:user_id] = user.id
       redirect "/users/#{user.slug}"
