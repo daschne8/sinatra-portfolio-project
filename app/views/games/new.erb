@@ -1,23 +1,30 @@
-<h3>Enter a new Game</h3>
+<div class="game-form">
+  <div class="game-form-left"></div>
+  <div class="game-form-body">
+    <h3>Enter a new Game</h3>
 
-<form action="/games" method="post">
-  <label for="name">Name: </label>
-    <input id="name" name="game[name]" type="text">
-  <label for="description">Description: </label>
-    <input id="description" name="game[description]" type="text">
-  <label for="genres">Genres: </label><br>
-    <% @genres.each do |genre|%>
-      <input id="<%=genre.name%>" type="checkbox" name='genres[]' value="<%=genre.id%>"><%=genre.name%></input>
-    <% end %><br>
-    <label for="new_genre">Or enter New Genre: </label>
-      <input id="new_genre" type="text" name="new_genre" ><br>
-  <br>
-  <label for="developer">Developed By: </label><br>
-    <% @developers.each do |dev|%>
-      <input id="<%=dev.name%>" type="checkbox" name='developer' value="<%=dev.id%>"><%=dev.name%></input>
-    <% end %><br>
-    <label for="new_dev">Or enter New Developer: </label>
-      <input id="new_dev" type="text" name="new_dev" >
+    <form action="/games" method="post">
+      <label for="name">Name: </label>
+        <input id="name" name="game[name]" type="text">
+        <div class="description-box">
+          <label for="description" >Description: </label>
+            <textarea rows="8" cols="80" id="description" name="game[description]" type="text"></textarea>
+        </div>
+      <label for="genres">Genres: </label><br>
+        <% @genres.each do |genre|%>
+          <input id="<%=genre.name%>" type="checkbox" name='genres[]' value="<%=genre.id%>"><%=genre.name%></input>
+        <% end %><br><br>
+        <label for="new_genre">Or enter New Genre: </label>
+          <input id="new_genre" type="text" name="new_genre" ><br><br>
+      <label for="developer">Developed By: </label><br>
+        <% @developers.each do |dev|%>
+          <input id="<%=dev.name%>" type="checkbox" name='developer' value="<%=dev.id%>"><%=dev.name%></input>
+        <% end %><br>
+        <label for="new_dev">Or enter New Developer: </label>
+          <input id="new_dev" type="text" name="new_dev" >
 
-  <input type="submit" name="submit" value="Enter">
-</form>
+      <input type="submit" name="submit" value="Enter">
+    </form>
+  </div>
+  <div class="game-form-right"></div>
+</div>

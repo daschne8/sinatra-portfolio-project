@@ -1,19 +1,16 @@
+html{
+  box-sizing: border-box;
+}
+
+*, *::before, *::after{
+  box-sizing: inherit;
+  margin: 0px;
+  border: 0px;
+}
+
 body {
-  padding: 10px;
   background-color: #88a2aa;
 }
-
-.nav-bar a{
-  color: white;
-  text-decoration: none;
-}
-
-.container a{
-  color: black;
-  text-decoration: none;
-}
-
-
 
 input[type=text], input[type=password]{
   width: 100%;
@@ -23,34 +20,62 @@ input[type=text], input[type=password]{
   color: blue;
 }
 
-.nav-bar{
-  background-color: #f42c04 ;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+nav{
+  width: 100%;
+  background-color: #f42c04;
+  position: fixed;
+  top: 0;
 }
 
-.nav-bar div{
-  padding: 20px;
+.navbar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item:hover{
+  background-color: #88a2aa;
+}
+
+.nav-item a{
+  display: inline-block;
+  padding: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-item a:hover{
+  color: black;
+}
+
+.nav-links{
+  list-style: none;
+  display: flex;
+}
+
+.container a{
+  color: black;
+  text-decoration: none;
 }
 
 .intro{
 
 }
 
+.current_user{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.current_user h1{
+  padding: 0px;
+  margin: 0px;
+}
+
+.current_user h6{
+  padding: 0px;
+  margin: 0px;
+}
+
 .yielded{
 
-}
-
-.lmr-container{
-  display: flex;
-  flex-direction: column;
-}
-
-.left,.right{
-  flex: 1;
-}
-
-.middle{
-  flex: 3;
 }

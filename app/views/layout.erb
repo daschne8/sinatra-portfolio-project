@@ -1,38 +1,54 @@
+<% path = request.path_info %>
+<% full_path = request.fullpath %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Flatiron Sinatra Project</title>
     <link rel="stylesheet" href="/style.css">
+    <% if full_path.include?("games") && (path.include?("/new") || path.include?("/edit")) %>
+      <link rel="stylesheet" href="/game-form.css">
+    <% end %>
   </head>
   <body>
-    <div class="nav-bar">
-      <% path = request.path_info %>
-      <div class="home">
-        <% if @current_user %>
-          <a href="/users/<%=@current_user.slug%>">HOME</a>
-        <% end %>
-        <a href="/">BROWSE</a>
-      </div>
-
-      <div class="user-access">
-        <% if !@current_user %>
-          <a href="/login">Log In</a>
-          <a href="/signup">Sign Up</a>
-        <% else %>
-          <a href="/logout">Logout</a>
-        <% end %>
-      </div>
-
-    </div>
+    <nav class="navbar">
+        <div class="nav-left">
+          <ul class="nav-links">
+            <% if @current_user %>
+              <li class="nav-item"><a href="/users/<%=@current_user.slug%>">HOME</a></li>
+            <% end %>
+            <li class="nav-item"><a href="/">BROWSE</a></li>
+            <% if @current_user && path != "/new"%>
+              <li class="nav-item"><a href="/games/new">NEW GAME</a></li>
+            <% end %>
+            <% if @current_user && full_path.include?("/games/") && @game%>
+              <li class="nav-item"><a href="/games/<%=@game.slug%>/edit">EDIT GAME</a></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <% if !@current_user %>
+            <li class="nav-item"><a href="/login">Log In</a></li>
+            <li class="nav-item"><a href="/signup">Sign Up</a></li>
+            <% else %>
+              <li class="nav-item"><a href="/logout">LOGOUT</a></li>
+            <% end %>
+          </ul>
+        </div>
+      </ul>
+    </nav><br><br><br>
 
     <div class="container">
       <div class="intro">
-        <% if @current_user %>
-          <h1><span class="username"><%=@current_user.username%></span></h1>
-          <h6>Logged In</h6>
-        <% end %>
-
+        <div class="current_user">
+          <div class="current_user_container">
+            <% if @current_user %>
+              <h1><span class="username"><%=@current_user.username%></span></h1>
+              <h6>Logged In</h6>
+            <% end %>
+          </div>
+        </div>
       </div>
 
       <div class="yielded">
