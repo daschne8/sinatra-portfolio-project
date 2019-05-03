@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>Flatiron Sinatra Project</title>
     <link rel="stylesheet" href="/style.css">
-    <% if full_path.include?("games") && (path.include?("/new") || path.include?("/edit")) %>
+    <% if (full_path.include?("games") && (path.include?("/new") || path.include?("/edit"))) || path.include?("/login") || path.include?("/signup") %>
       <link rel="stylesheet" href="/game-form.css">
     <% end %>
   </head>

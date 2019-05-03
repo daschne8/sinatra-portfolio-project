@@ -18,11 +18,12 @@
     <li><a href="/users/<%=u.slug%>"><%= u.username %></a></li>
   <% end %>
 </ul>
-
-<form action="/mod_game/<%=@game.slug%>" method="post">
-  <% if !@current_user.games.include?(@game) %>
-    <input type="submit" name="mod_game" value="Add to Library">
-  <% else %>
-    <input type="submit" name="mod_game" value="Edit Game">
-  <% end %>
-</form>
+<% if Helpers.is_logged_in?(session) %>
+  <form action="/mod_game/<%=@game.slug%>" method="post">
+    <% if !@current_user.games.include?(@game) %>
+      <input type="submit" name="mod_game" value="Add to Library">
+    <% else %>
+      <input type="submit" name="mod_game" value="Edit Game">
+    <% end %>
+  </form>
+<% end %>
