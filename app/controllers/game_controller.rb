@@ -37,9 +37,10 @@ class GameController < ApplicationController
   post '/mod_game/:slug' do
     @game = Game.find_by_slug(params[:slug])
     @current_user = Helpers.current_user(session)
-    if params[:mod_game] == "Add_to_Library"
+    if params[:mod_game] == "Add to Library"
       @current_user.games << @game
       @current_user.save
+      redirect "/users/#{@current_user.slug}"
     else
       redirect "/games/#{@game.slug}/edit"
     end
@@ -94,8 +95,5 @@ class GameController < ApplicationController
     end
 
   end
-
-
-
 
 end
