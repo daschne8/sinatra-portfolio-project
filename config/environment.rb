@@ -6,3 +6,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require_all "app"
+require 'open-uri'
+require 'nokogiri'
+require 'steam-api'
+Steam.apikey = "AF2EF74D1DA3B2636877D541E53F9078"

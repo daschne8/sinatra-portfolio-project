@@ -44,6 +44,7 @@ class UserController < ApplicationController
   post '/signup' do
     if !params[:username].empty? && !params[:steamid].empty? && !params[:password].empty?
       user = User.create(params)
+      user.steam_seed
       session[:user_id] = user.id
       redirect "/users/#{user.slug}"
     else
