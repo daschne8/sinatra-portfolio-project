@@ -1,16 +1,15 @@
-<form action="/signup" method="post">
-  <div class="lmr-container">
-    <div class="left"></div>
-    <div class="middle">
-      <label for="username">Username: </label>
-        <input id="username" type="text" name="username">
-      <label for="steamid">Steam Id: </label>
-        <input id="steamid" type="text" name="steamid">
-      <label for="password">Password: </label>
-        <input id="password" type="password" name="password">
-      <input type="submit" value="Sign Up">
+<div class="game-form">
+  <div class="game-form-left"></div>
+    <div class="game-form-body">
+      <form action="/signup" method="post">
+        <label for="username">Username: </label>
+          <input id="username" type="text" name="username">
+        <label for="steamid">Steam Id: </label>
+          <input id="steamid" type="text" name="steamid">
+        <label for="password">Password: </label>
+          <input id="password" type="password" name="password">
+        <input type="submit" value="Sign Up">
+      </form>
     </div>
-    <div class="right"></div>
-  </div>
-
-</form>
+  <div class="game-form-right"></div>
+</div>
