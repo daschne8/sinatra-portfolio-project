@@ -15,13 +15,13 @@
 <h1>Developers</h1>
 <ul>
   <% @developers.each do |u|%>
-      <li><%= u.name %></li>
+      <li><a href="/developers/<%=u.slug%>"><%= u.name %></a></li>
   <% end %>
 </ul><br><br>
 
 <h1>Genres</h1>
 <ul>
   <% @genres.each do |u|%>
-      <li><%= u.name %></li>
+      <li><a href="/genres/<%=u.slug%>"><%= u.name %></a></li>
   <% end %>
 </ul><br><br>
